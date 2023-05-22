@@ -1,7 +1,8 @@
 {
     "name": "sixgweb/passwordgenerator-plugin",
     "type": "october-plugin",
-    "description": "No description provided yet...",
+    "description": "RainLab User Attributize Integration",
+    "license": "MIT",
     "require": {
         "composer/installers": "~1.0"
     }

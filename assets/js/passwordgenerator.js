@@ -8,7 +8,7 @@
             generateLink.innerHTML = '<i class="bi bi-arrow-repeat"></i>';
             generateLink.addEventListener('click', (e) => {
                 e.preventDefault();
-                let password = passwordGenerator(12);
+                let password = passwordGenerator();
                 passwordField.value = password;
                 let confirmField = document.querySelector('[name="' + passwordField.dataset.passwordGenerator + '"]');
                 confirmField.value = password;
@@ -22,7 +22,7 @@
         });
     };
 
-    let passwordGenerator = (length = 8) => {
+    let passwordGenerator = (length = 12) => {
         let password = '';
         let charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*';
         for (let i = 0, n = charset.length; i < length; ++i) {

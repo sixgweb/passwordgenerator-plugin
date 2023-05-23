@@ -1,4 +1,4 @@
-Generates a random password for password and password confirmation fields when the icon is clicked.  Only visible when creating new models.
+Generate a new password for password and corresponding confirmation fields.  Includes a copy icon to copy generated password to clipboard.
 
 # Installation
 

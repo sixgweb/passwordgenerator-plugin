@@ -20,7 +20,7 @@ class Plugin extends PluginBase
     {
         return [
             'name' => 'PasswordGenerator',
-            'description' => 'No description provided yet...',
+            'description' => 'Add a javascript password generator to password and password confirmation fields.',
             'author' => 'Sixgweb',
             'icon' => 'icon-leaf'
         ];
@@ -37,29 +37,7 @@ class Plugin extends PluginBase
     protected function extendFormFields()
     {
         Event::listen('backend.form.extendFields', function ($form) {
-            if ($form->model->exists) {
-                return;
-            }
-            $hasPasswordField = false;
-            foreach ($form->getFields() as $field) {
-                if ($field->type == 'password') {
-                    if (isset($form->model->rules[$field->fieldName])) {
-                        if (strpos('confirmed', $form->model->rules[$field->fieldName]) === false) {
-                            $confirmField = $form->getField($field->fieldName . '_confirmation') ?? null;
-                            if ($confirmField) {
-                                $attributes = $field->attributes ?? [];
-                                $attributes['data-password-generator'] = $confirmField->getName();
-                                $field->attributes = $attributes;
-                                $hasPasswordField = true;
-                            }
-                        }
-                    }
-                }
-            }
-
-            if ($hasPasswordField) {
-                $form->getController()->addJs('/plugins/sixgweb/passwordgenerator/assets/js/passwordgenerator.js');
-            }
+            $form->getController()->addJs('/plugins/sixgweb/passwordgenerator/assets/js/passwordgenerator.js');
         });
     }
 }

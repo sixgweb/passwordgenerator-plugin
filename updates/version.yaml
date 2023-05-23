@@ -1,3 +1,4 @@
 1.0.1: First version of PasswordGenerator
 1.0.2: Update script and add composer license
 1.0.3: Fix composer description
+1.0.4: Clean up js and enable for all password fields

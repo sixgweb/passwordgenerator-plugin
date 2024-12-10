@@ -2,3 +2,4 @@
 1.0.2: Update script and add composer license
 1.0.3: Fix composer description
 1.0.4: Clean up js and enable for all password fields
+1.0.5: Check if app running in backend

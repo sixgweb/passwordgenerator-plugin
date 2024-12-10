@@ -2,6 +2,7 @@
 
 namespace Sixgweb\PasswordGenerator;
 
+use App;
 use Event;
 use Backend;
 use System\Classes\PluginBase;
@@ -31,7 +32,9 @@ class Plugin extends PluginBase
      */
     public function boot()
     {
-        $this->extendFormFields();
+        if (App::runningInBackend()) {
+            $this->extendFormFields();
+        }
     }
 
     protected function extendFormFields()
